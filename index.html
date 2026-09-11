@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Victor Sotto · Resume (A4 210×297mm)</title>
+		<style>
+			/* A4 paper: 210mm x 297mm */
+			@page {
+				size: A4;
+				margin: 12mm;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				background: #e6e9ef;
+				display: flex;
+				justify-content: center;
+				align-items: flex-start;
+				min-height: 100vh;
+				font-family:
+					'Inter',
+					'Segoe UI',
+					Roboto,
+					system-ui,
+					-apple-system,
+					sans-serif;
+				padding: 24px;
+				color: #1f2a3f;
+			}
+
+			.resume {
+				width: 210mm;
+				min-height: 297mm;
+				background: #ffffff;
+				padding: 14mm 15mm;
+				display: flex;
+				flex-direction: column;
+			}
+
+			/* ---------- HEADER ---------- */
+			.header {
+				display: flex;
+				align-items: center;
+				gap: 18px;
+				padding-bottom: 16px;
+				border-bottom: 2px solid #eef2f7;
+				margin-bottom: 20px;
+			}
+			.avatar {
+				flex-shrink: 0;
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+				overflow: hidden;
+				border: 3px solid #ffffff;
+				outline: 1px solid #cfd7e5;
+			}
+			.avatar img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.name-title {
+				flex: 1;
+			}
+			.name-title h1 {
+				font-size: 24px;
+				font-weight: 700;
+				letter-spacing: -0.3px;
+				color: #1e293b;
+				line-height: 1.15;
+				margin-bottom: 4px;
+			}
+
+			.contact-list {
+				list-style: none;
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+			}
+			.contact-list li {
+				display: flex;
+				align-items: center;
+				font-size: 12.8px;
+				color: #2c405e;
+			}
+			.contact-list .contact-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 12px;
+				margin-right: 8px;
+				flex-shrink: 0;
+			}
+			.contact-list .contact-icon svg {
+				width: 13px;
+				height: 13px;
+				stroke: #2c405e;
+				fill: none;
+				stroke-width: 1.8;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+			}
+			/* LinkedIn filled icon */
+			.contact-list .contact-icon svg.linkedin-icon {
+				fill: #2c405e;
+				stroke: none;
+				width: 13px;
+				height: 13px;
+			}
+			.contact-list a.contact-link {
+				color: #2c405e;
+				text-decoration: none;
+			}
+			.contact-list a.contact-link:hover {
+				text-decoration: underline;
+			}
+
+			/* ---------- LAYOUT ---------- */
+			.columns {
+				display: flex;
+				gap: 24px;
+				flex: 1;
+			}
+			.left-col {
+				flex: 1 1 34%;
+				min-width: 0;
+			}
+			.right-col {
+				flex: 2 1 60%;
+				min-width: 0;
+			}
+
+			.section {
+				margin-bottom: 20px;
+			}
+			.section-title {
+				font-size: 12.8px;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 1.2px;
+				color: #1e293b;
+				border-bottom: 2px solid #eef2f7;
+				padding-bottom: 6px;
+				margin-bottom: 11px;
+			}
+
+			.summary-text {
+				font-size: 12.2px;
+				line-height: 1.65;
+				color: #1f2a3f;
+				background: #f8fafd;
+				padding: 11px 13px;
+				border-radius: 10px;
+				border-left: 4px solid #b2c3db;
+			}
+
+			.skillset {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 6px;
+			}
+			.skill-tag {
+				background: #eef2f7;
+				color: #1f2a3f;
+				padding: 4px 11px;
+				border-radius: 30px;
+				font-size: 11.3px;
+				font-weight: 500;
+				border: 1px solid #dbe0ea;
+			}
+
+			.edu-item {
+				background: #f8fafd;
+				padding: 10px 13px;
+				border-radius: 10px;
+				border-left: 4px solid #b2c3db;
+			}
+			.edu-item .degree {
+				font-weight: 600;
+				font-size: 13.4px;
+				color: #14273e;
+			}
+			.edu-item .school {
+				font-size: 12.2px;
+				color: #2d405b;
+				display: block;
+				margin-top: 2px;
+			}
+
+			.ref-note {
+				font-size: 12.2px;
+				color: #2c405e;
+				background: #f2f6fd;
+				padding: 8px 14px;
+				border-radius: 30px;
+				display: inline-block;
+				border: 1px solid #dae1ed;
+			}
+
+			/* ---------- EXPERIENCE ---------- */
+			.exp-item {
+				margin-bottom: 16px;
+			}
+			.exp-role {
+				font-weight: 700;
+				font-size: 13.8px;
+				color: #0b1a2e;
+				display: block;
+				margin-bottom: 2px;
+			}
+			.exp-meta {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: 5px;
+				margin-bottom: 5px;
+			}
+			.exp-company {
+				font-weight: 500;
+				font-size: 12.4px;
+				background: #f0f4fc;
+				padding: 1px 10px;
+				border-radius: 30px;
+				display: inline-block;
+				color: #2c405e;
+			}
+			.exp-company a {
+				text-decoration: none;
+				color: #2c405e;
+				display: inline-flex;
+				align-items: center;
+				gap: 4px;
+			}
+			.exp-company a .company-text {
+				text-decoration: none;
+			}
+			.exp-company a:hover .company-text {
+				text-decoration: underline;
+			}
+			.link-icon {
+				font-style: normal;
+				font-size: 11.5px;
+				opacity: 0.8;
+				text-decoration: none !important;
+				display: inline-block;
+			}
+			.exp-date {
+				font-size: 11.5px;
+				font-weight: 500;
+				color: #476085;
+				background: #eef2f8;
+				padding: 2px 10px;
+				border-radius: 30px;
+				white-space: nowrap;
+			}
+			.exp-desc ul {
+				list-style: none;
+			}
+			.exp-desc li {
+				font-size: 12px;
+				line-height: 1.55;
+				color: #1d2a41;
+				padding-left: 15px;
+				position: relative;
+				margin-bottom: 4px;
+			}
+			.exp-desc li::before {
+				content: '•';
+				position: absolute;
+				left: 2px;
+				color: #3c5a80;
+				font-weight: 700;
+			}
+
+			@media print {
+				body {
+					background: white;
+					padding: 0;
+				}
+				.resume {
+					width: 100%;
+					min-height: auto;
+					padding: 0;
+					box-shadow: none;
+				}
+				.skill-tag,
+				.exp-company,
+				.exp-date,
+				.summary-text,
+				.edu-item,
+				.ref-note,
+				.contact-list li,
+				.avatar,
+				.contact-list .contact-icon svg.linkedin-icon {
+					-webkit-print-color-adjust: exact;
+					print-color-adjust: exact;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="resume">
+			<!-- HEADER -->
+			<div class="header">
+				<div class="avatar">
+					<img src="profile.jpeg" alt="Victor Sotto" />
+				</div>
+				<div class="name-title">
+					<h1>Victor Sotto</h1>
+					<ul class="contact-list">
+						<li>
+							<span class="contact-icon"
+								><svg viewBox="0 0 24 24">
+									<circle cx="12" cy="12" r="10" />
+									<line x1="2" y1="12" x2="22" y2="12" />
+									<path
+										d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+									/></svg
+							></span>
+							Cebu City, Philippines
+						</li>
+						<li>
+							<span class="contact-icon"
+								><svg viewBox="0 0 24 24">
+									<rect x="5" y="2" width="14" height="20" rx="2" />
+									<line x1="12" y1="18" x2="12" y2="18.01" /></svg
+							></span>
+							0927-7570297
+						</li>
+						<li>
+							<span class="contact-icon"
+								><svg viewBox="0 0 24 24">
+									<rect x="2" y="4" width="20" height="16" rx="2" />
+									<polyline points="22,6 12,13 2,6" /></svg
+							></span>
+							<a
+								class="contact-link"
+								href="mailto:victor.roa.sotto@gmail.com"
+								>victor.roa.sotto@gmail.com</a
+							>
+						</li>
+						<li>
+							<span class="contact-icon"
+								><svg class="linkedin-icon" viewBox="0 0 24 24">
+									<path
+										d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.09h4.56V24H.22V8.09zM8.34 8.09h4.37v2.17h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v9.11h-4.56v-8.08c0-1.93-.03-4.41-2.69-4.41-2.69 0-3.1 2.1-3.1 4.27V24H8.34V8.09z"
+									/></svg
+							></span>
+							<a
+								class="contact-link"
+								href="https://linkedin.com/in/victor-roa-sotto"
+								target="_blank"
+								>linkedin.com/in/victor-roa-sotto</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- COLUMNS -->
+			<div class="columns">
+				<div class="left-col">
+					<div class="section">
+						<div class="section-title">Professional Summary</div>
+						<div class="summary-text">
+							Web Developer based in Cebu City with proven experience
+							designing and building dynamic, responsive websites and web
+							applications. Proficient in open-source technologies
+							including Bootstrap, JavaScript (jQuery), WordPress, and
+							custom PHP. Recognized for collaborating effectively with
+							cross-functional teams, providing strategic input, and
+							managing hands-on planning that drives projects to
+							successful completion.
+						</div>
+					</div>
+
+					<div class="section">
+						<div class="section-title">Core Skills</div>
+						<div class="skillset">
+							<span class="skill-tag">WordPress &amp; Drupal</span>
+							<span class="skill-tag">API Integration</span>
+							<span class="skill-tag">CodeIgniter</span>
+							<span class="skill-tag">PHP &amp; MySQL</span>
+							<span class="skill-tag">JavaScript &amp; jQuery</span>
+							<span class="skill-tag">Bootstrap</span>
+							<span class="skill-tag">LESS / SASS</span>
+							<span class="skill-tag">Git Version Control</span>
+							<span class="skill-tag">Cross-Platform OS</span>
+							<span class="skill-tag">AI Model Integration</span>
+						</div>
+					</div>
+
+					<div class="section">
+						<div class="section-title">Education</div>
+						<div class="edu-item">
+							<div class="degree">
+								BS in Information Technology — Computer Science
+							</div>
+							<div class="school">
+								University of Cebu, Cebu City, Philippines
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<div class="section-title">Reference</div>
+						<div class="ref-note">Available upon request</div>
+					</div>
+				</div>
+
+				<div class="right-col">
+					<div class="section">
+						<div class="section-title">Professional Experience</div>
+
+						<div class="exp-item">
+							<span class="exp-role"
+								>Freelance Web Developer &amp; Consultant</span
+							>
+							<div class="exp-meta">
+								<span class="exp-company">Independent</span>
+								<span class="exp-date">June 2023 – September 2025</span>
+							</div>
+							<div class="exp-desc">
+								<ul>
+									<li>
+										Delivered technical support and consultancy to
+										clients via chat and voice calls.
+									</li>
+									<li>
+										Managed development, troubleshooting, deployment,
+										and ongoing maintenance.
+									</li>
+									<li>
+										Executed daily responsibilities with precision in
+										a fast-paced, self-directed environment.
+									</li>
+									<li>
+										Contributed innovative ideas that strengthened
+										team performance and outcomes.
+									</li>
+									<li>
+										Partnered with colleagues from diverse backgrounds
+										to resolve product issues and meet goals.
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="exp-item">
+							<span class="exp-role">Full-stack Developer</span>
+							<div class="exp-meta">
+								<span class="exp-company">
+									<a
+										href="https://www.smithbrothersmedia.com"
+										target="_blank"
+									>
+										<span class="link-icon">🔗</span
+										><span class="company-text"
+											>Smith Brothers Media</span
+										>
+									</a>
+								</span>
+								<span class="exp-date">August 2022 – May 2023</span>
+							</div>
+							<div class="exp-desc">
+								<ul>
+									<li>
+										Built responsive web applications using JavaScript
+										and React.
+									</li>
+									<li>
+										Integrated APIs to extend functionality and
+										improve user experience.
+									</li>
+									<li>
+										Collaborated with designers to produce intuitive
+										user interfaces.
+									</li>
+									<li>
+										Developed custom WordPress themes, managed
+										environments, applied upgrades and security
+										measures, and produced maintenance reports.
+										Supported migrations, backups, and restorations,
+										boosting client satisfaction and reliability.
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="exp-item">
+							<span class="exp-role"
+								>Associate Technical Specialist</span
+							>
+							<div class="exp-meta">
+								<span class="exp-company">
+									<a
+										href="https://www.easypayrollglobal.com"
+										target="_blank"
+									>
+										<span class="link-icon">🔗</span
+										><span class="company-text"
+											>Easy Payroll Global</span
+										>
+									</a>
+								</span>
+								<span class="exp-date">February 2019 – April 2020</span>
+							</div>
+							<div class="exp-desc">
+								<ul>
+									<li>
+										Partnered with the team manager to transform UI/UX
+										designs into polished, mobile-responsive websites.
+									</li>
+									<li>
+										Maintained and updated client sites regularly to
+										ensure peak performance and a seamless user
+										experience.
+									</li>
+									<li>
+										Processed payroll for diverse clients across
+										multiple jurisdictions.
+									</li>
+									<li>
+										Ensured compliance with payroll regulations and
+										tax requirements.
+									</li>
+									<li>
+										Supported system upgrades and troubleshooting for
+										payroll software applications.
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="exp-item">
+							<span class="exp-role">Web Technical Support</span>
+							<div class="exp-meta">
+								<span class="exp-company">
+									<a href="https://www.voden.com" target="_blank">
+										<span class="link-icon">🔗</span
+										><span class="company-text"
+											>Voden Internet Solutions</span
+										>
+									</a>
+								</span>
+								<span class="exp-date"
+									>August 2015 – November 2018</span
+								>
+							</div>
+							<div class="exp-desc">
+								<ul>
+									<li>
+										Resolved website issues for the marketing team,
+										ensuring strong site performance and user
+										experience.
+									</li>
+									<li>
+										Built custom WordPress themes and improved UI
+										using Vagrant, Apache, PHP, MySQL, jQuery,
+										SASS/LESS, Git, Bootstrap, and WordPress.
+									</li>
+									<li>
+										Provided technical support for web analytics
+										applications.
+									</li>
+									<li>
+										Supported product launches by troubleshooting
+										customer issues quickly.
+									</li>
+									<li>
+										Assisted customers via phone and online chat
+										channels.
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="exp-item">
+							<span class="exp-role">Web Developer</span>
+							<div class="exp-meta">
+								<span class="exp-company">Azaza Biz Solutions</span>
+								<span class="exp-date">August 2013 – April 2015</span>
+							</div>
+							<div class="exp-desc">
+								<ul>
+									<li>
+										Built responsive web applications using HTML, CSS,
+										and JavaScript.
+									</li>
+									<li>
+										Converted static Photoshop designs into responsive
+										templates and integrated them into a custom CMS
+										built with CodeIgniter. Used Apache, WordPress,
+										jQuery, and Git while managing hosting servers to
+										maintain uptime.
+									</li>
+									<li>
+										Collaborated with design teams to create
+										user-friendly interfaces.
+									</li>
+									<li>
+										Implemented website optimization strategies to
+										improve performance.
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
